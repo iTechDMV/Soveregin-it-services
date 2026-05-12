@@ -4,233 +4,101 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Sovereign IT Services</title>
-
-  <!-- CORE CSS -->
-  <link rel="stylesheet" href="css/core/reset.css" />
-  <link rel="stylesheet" href="css/core/variables.css" />
-  <link rel="stylesheet" href="css/core/typography.css" />
-  <link rel="stylesheet" href="css/core/spacing.css" />
-
-  <!-- UI CSS -->
-  <link rel="stylesheet" href="css/ui/buttons.css" />
-  <link rel="stylesheet" href="css/ui/cards.css" />
-  <link rel="stylesheet" href="css/ui/panels.css" />
-  <link rel="stylesheet" href="css/ui/forms.css" />
-  <link rel="stylesheet" href="css/ui/navigation.css" />
-
-  <!-- SECTION CSS -->
-  <link rel="stylesheet" href="css/sections/hero.css" />
-  <link rel="stylesheet" href="css/sections/services.css" />
-  <link rel="stylesheet" href="css/sections/why.css" />
-  <link rel="stylesheet" href="css/sections/trusted.css" />
-  <link rel="stylesheet" href="css/sections/systems-map.css" />
-  <link rel="stylesheet" href="css/sections/contact.css" />
-
-  <!-- EFFECTS CSS -->
-  <link rel="stylesheet" href="css/effects/animations.css" />
-  <link rel="stylesheet" href="css/effects/parallax.css" />
-  <link rel="stylesheet" href="css/effects/gradients.css" />
+  <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
 
-  <!-- NAVIGATION -->
-  <nav class="nav">
-    <div class="nav-left">
-      <span class="logo-text gradient-text">Sovereign IT Services</span>
-    </div>
-
-    <div class="nav-links">
-      <a href="#services">Services</a>
-      <a href="#why">Why Us</a>
-      <a href="#trusted">Trusted</a>
-      <a href="#systems">Systems Map</a>
-      <a href="#contact">Contact</a>
-    </div>
-
-    <div id="themeToggle" class="theme-toggle">☀️</div>
-  </nav>
-
   <!-- HERO -->
-  <section class="hero reveal">
-    <div class="hero-grid">
+  <header class="hero">
+    <div class="hero-overlay"></div>
+    <img src="assets/hero/tribal-cyber-hero.jpg" class="hero-bg" />
 
-      <div class="hero-copy">
-        <h1 class="gradient-text">Modern Security & IT Infrastructure for Sovereign Nations</h1>
+    <div class="hero-content">
+      <h1>Sovereign IT Services</h1>
+      <p>Enterprise‑grade cybersecurity, cloud, and physical security systems designed for tribal governments, enterprises, and sovereign operations.</p>
 
-        <p class="hero-sub">
-          Enterprise‑grade cybersecurity, cloud, and physical security systems designed for tribal governments, 
-          enterprises, and sovereign operations.
-        </p>
-
-        <div class="hero-actions">
-          <a class="btn primary" href="#contact">Get Started</a>
-          <a class="btn ghost" href="#services">View Services</a>
-        </div>
-
-        <div class="hero-meta">
-          <span>⚡ 24/7 Monitoring</span>
-          <span>•</span>
-          <span>🛡 Zero‑Trust Architecture</span>
-        </div>
+      <div class="hero-buttons">
+        <a class="btn-primary">Get Started</a>
+        <a class="btn-outline">View Services</a>
       </div>
-
-      <div class="hero-visual">
-        <div class="orb orb-main"></div>
-        <div class="orb orb-secondary"></div>
-
-        <div class="grid-panel">
-          <div class="grid-row">
-            <span>Network Health</span>
-            <span class="value good">Optimal</span>
-          </div>
-          <div class="grid-row">
-            <span>Threat Activity</span>
-            <span class="value warn">Elevated</span>
-          </div>
-          <div class="grid-row">
-            <span>System Uptime</span>
-            <span class="value good">99.99%</span>
-          </div>
-        </div>
-      </div>
-
     </div>
-  </section>
-
-  <div class="section-divider"></div>
+  </header>
 
   <!-- SERVICES -->
-  <section id="services" class="section reveal">
-    <h2 class="gradient-text">Our Services</h2>
-    <p class="section-sub">Comprehensive IT, cybersecurity, and physical security solutions.</p>
+  <section class="services">
+    <div class="service-card">
+      <img src="assets/icons/shield.svg" />
+      <h3>Cybersecurity</h3>
+      <p>Zero‑trust architecture, SIEM, SOC monitoring, and threat intelligence.</p>
+    </div>
 
-    <div class="cards">
+    <div class="service-card">
+      <img src="assets/icons/cloud.svg" />
+      <h3>Cloud Infrastructure</h3>
+      <p>Azure, AWS, hybrid cloud, identity management, and secure deployments.</p>
+    </div>
 
-      <div class="card gradient-border">
-        <h3>Cybersecurity</h3>
-        <p>Zero‑trust architecture, SIEM, SOC monitoring, and threat intelligence.</p>
-      </div>
+    <div class="service-card">
+      <img src="assets/icons/camera.svg" />
+      <h3>Physical Security</h3>
+      <p>Access control, surveillance, intrusion detection, and integrated systems.</p>
+    </div>
 
-      <div class="card gradient-border">
-        <h3>Cloud Infrastructure</h3>
-        <p>Azure, AWS, hybrid cloud, identity management, and secure deployments.</p>
-      </div>
-
-      <div class="card gradient-border">
-        <h3>Physical Security</h3>
-        <p>Access control, surveillance, intrusion detection, and integrated systems.</p>
-      </div>
-
-      <div class="card gradient-border">
-        <h3>Networking</h3>
-        <p>Enterprise Wi‑Fi, SD‑WAN, fiber, and secure network architecture.</p>
-      </div>
-
+    <div class="service-card">
+      <img src="assets/icons/network.svg" />
+      <h3>Networking</h3>
+      <p>Enterprise Wi‑Fi, SD‑WAN, fiber, and secure network architecture.</p>
     </div>
   </section>
 
-  <div class="section-divider"></div>
-
   <!-- WHY US -->
-  <section id="why" class="section reveal">
-    <h2 class="gradient-text">Why Sovereign IT Services</h2>
-    <p class="section-sub">Built for sovereignty. Engineered for resilience.</p>
+  <section class="why-us">
+    <h2>Built for sovereignty. Engineered for resilience.</h2>
 
-    <div class="cards">
-
-      <div class="card">
-        <h3>Tribal‑Focused</h3>
+    <div class="why-grid">
+      <div class="why-item">
+        <img src="assets/icons/tribal.svg" />
+        <h4>Tribal‑Focused</h4>
         <p>Solutions designed specifically for tribal governments and sovereign operations.</p>
       </div>
 
-      <div class="card">
-        <h3>Enterprise‑Grade</h3>
-        <p>We deploy the same technology used by Fortune 500 and federal agencies.</p>
+      <div class="why-item">
+        <img src="assets/icons/enterprise.svg" />
+        <h4>Enterprise‑Grade</h4>
+        <p>Technology used by Fortune 500 and federal agencies.</p>
       </div>
 
-      <div class="card">
-        <h3>Compliance‑Ready</h3>
+      <div class="why-item">
+        <img src="assets/icons/compliance.svg" />
+        <h4>Compliance‑Ready</h4>
         <p>NIST, CJIS, HIPAA, FedRAMP, and tribal regulatory alignment.</p>
       </div>
-
     </div>
   </section>
 
-  <div class="section-divider"></div>
-
-  <!-- TRUSTED -->
-  <section id="trusted" class="section reveal">
-    <h2 class="gradient-text">Trusted By</h2>
-    <p class="section-sub">Organizations that rely on secure, resilient infrastructure.</p>
-
-    <div class="trust-logos">
-      <div class="trust-logo"></div>
-      <div class="trust-logo"></div>
-      <div class="trust-logo"></div>
-    </div>
+  <!-- SYSTEM MAP -->
+  <section class="system-map">
+    <h2>A visual overview of your secure infrastructure.</h2>
+    <img src="assets/sections/system-map.svg" class="system-map-img" />
   </section>
-
-  <div class="section-divider"></div>
-
-  <!-- SYSTEMS MAP -->
-  <section id="systems" class="section reveal">
-    <h2 class="gradient-text">Systems Map</h2>
-    <p class="section-sub">A visual overview of your secure infrastructure.</p>
-
-    <div class="systems-map">
-      <div class="node" style="top:40px; left:60px;"></div>
-      <div class="node" style="top:120px; left:200px;"></div>
-      <div class="node" style="top:80px; left:340px;"></div>
-      <div class="node" style="top:160px; left:480px;"></div>
-      <div class="node" style="top:100px; left:620px;"></div>
-    </div>
-  </section>
-
-  <div class="section-divider"></div>
 
   <!-- CONTACT -->
-  <section id="contact" class="section reveal">
-    <h2 class="gradient-text">Contact Us</h2>
-    <p class="section-sub">Let’s build something sovereign, secure, and future‑proof.</p>
+  <section class="contact">
+    <h2>Let’s build something sovereign, secure, and future‑proof.</h2>
 
-    <div class="section-contact">
-      <form class="contact-form">
-
-        <div class="field">
-          <label>Name</label>
-          <input type="text" placeholder="Your name" />
-        </div>
-
-        <div class="field">
-          <label>Email</label>
-          <input type="email" placeholder="you@example.com" />
-        </div>
-
-        <div class="field">
-          <label>Message</label>
-          <textarea rows="5" placeholder="How can we help?"></textarea>
-        </div>
-
-        <button class="btn primary full">Send Message</button>
-
-      </form>
-    </div>
+    <form class="contact-form">
+      <input type="text" placeholder="Your name" />
+      <input type="email" placeholder="you@example.com" />
+      <textarea placeholder="How can we help?"></textarea>
+      <button class="btn-primary">Send Message</button>
+    </form>
   </section>
 
-  <div class="section-divider"></div>
-
-  <!-- FOOTER -->
-  <footer class="section" style="text-align:center; opacity:0.6;">
-    <p>© 2026 Sovereign IT Services — All Rights Reserved</p>
+  <footer>
+    © 2026 Sovereign IT Services — All Rights Reserved
   </footer>
-
-  <!-- JS FILES -->
-  <script src="js/theme.js"></script>
-  <script src="js/scroll-reveal.js"></script>
-  <script src="js/parallax.js"></script>
-  <script src="js/animations.js"></script>
-  <script src="js/systems-map.js"></script>
 
 </body>
 </html>
+
