@@ -1,0 +1,29 @@
+/* UI Component Tokens */
+
+:root {
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+
+  --panel-bg: var(--brand-panel);
+  --panel-border: var(--border-strong);
+
+  --input-bg: rgba(255,255,255,0.05);
+  --input-border: var(--border-light);
+  --input-focus: var(--brand-cyan);
+}
+
+input, textarea {
+  background: var(--input-bg);
+  border: 1px solid var(--input-border);
+  border-radius: var(--radius-md);
+  padding: 12px;
+  color: var(--text-primary);
+  font-family: var(--font-ui);
+}
+
+input:focus, textarea:focus {
+  border-color: var(--input-focus);
+  outline: none;
+  box-shadow: var(--glow-cyan);
+}
