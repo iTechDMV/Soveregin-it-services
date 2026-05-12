@@ -2,179 +2,39 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Sovereign IT Services</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-  <!-- Design System -->
-  <link rel="stylesheet" href="assets/branding/color-tokens.css" />
-  <link rel="stylesheet" href="assets/branding/typography.css" />
-  <link rel="stylesheet" href="assets/branding/buttons.css" />
-  <link rel="stylesheet" href="assets/branding/cards.css" />
-  <link rel="stylesheet" href="assets/branding/ui-tokens.css" />
-  <link rel="stylesheet" href="assets/patterns/animated-mesh.css" />
-
-  <style>
-    body {
-      margin: 0;
-      background: var(--brand-black);
-      color: var(--text-primary);
-      overflow-x: hidden;
-    }
-
-    .page {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 32px 16px 80px;
-    }
-
-    /* NAVIGATION */
-    header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 32px;
-    }
-
-    nav a {
-      color: var(--text-secondary);
-      margin-left: 20px;
-      text-decoration: none;
-      font-family: var(--font-ui);
-      font-size: var(--text-sm);
-      position: relative;
-      transition: color .25s ease;
-    }
-
-    /* Neon hover underline */
-    nav a::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: -4px;
-      width: 0%;
-      height: 2px;
-      background: linear-gradient(90deg, var(--brand-cyan), var(--brand-emerald));
-      transition: width .3s ease;
-      box-shadow: var(--glow-cyan);
-    }
-
-    nav a:hover {
-      color: var(--brand-cyan);
-    }
-
-    nav a:hover::after {
-      width: 100%;
-    }
-
-    /* HERO */
-    .hero {
-      display: grid;
-      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
-      gap: 32px;
-      align-items: center;
-      margin-bottom: 100px;
-      padding: 40px;
-      border-radius: 20px;
-
-      /* Floating neon border */
-      border: 2px solid transparent;
-      background: linear-gradient(#0d1117, #0d1117) padding-box,
-                  linear-gradient(90deg, var(--brand-cyan), var(--brand-emerald)) border-box;
-      box-shadow: 0 0 20px rgba(34,211,238,0.25);
-    }
-
-    .hero-visual img {
-      width: 100%;
-      border-radius: 16px;
-      border: 1px solid var(--border-light);
-    }
-
-    /* SECTION SPACING */
-    .section {
-      margin-top: 100px;
-      padding-top: 40px;
-    }
-
-    /* Neon animated divider */
-    .section-divider {
-      width: 100%;
-      height: 3px;
-      margin: 80px 0;
-      background: linear-gradient(90deg, #22d3ee, #22c55e, #22d3ee);
-      background-size: 300% 100%;
-      animation: neonFlow 6s linear infinite;
-      border-radius: 4px;
-      box-shadow: 0 0 12px rgba(34,211,238,0.4);
-    }
-
-    @keyframes neonFlow {
-      0% { background-position: 0% 0; }
-      50% { background-position: 100% 0; }
-      100% { background-position: 0% 0; }
-    }
-
-    /* Scroll-triggered fade-in */
-    .fade-in {
-      opacity: 0;
-      transform: translateY(20px);
-      transition: opacity .8s ease, transform .8s ease;
-    }
-
-    .fade-in.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    /* Footer neon bar */
-    footer {
-      margin-top: 100px;
-      padding-top: 24px;
-      border-top: 2px solid transparent;
-      background: linear-gradient(#0d1117, #0d1117) padding-box,
-                  linear-gradient(90deg, var(--brand-cyan), var(--brand-emerald)) border-box;
-      text-align: center;
-      color: var(--text-secondary);
-      font-size: var(--text-sm);
-      padding-bottom: 24px;
-    }
-  </style>
+  <title>Sovereign IT Services</title>
+  <link rel="stylesheet" href="css/styles.css" />
 </head>
+<body class="page-intro">
+  <div class="cyber-grid"></div>
+  <div id="scroll-progress"></div>
 
-<body>
-  <div class="page">
+  <header class="fade-in">
+    <img src="assets/branding/logo.svg" alt="Sovereign IT Services" height="48" />
+    <nav>
+      <a href="#services">Services</a>
+      <a href="#architecture">Architecture</a>
+      <a href="#trust">Trust</a>
+      <button id="themeToggle" class="btn-outline">Toggle Theme</button>
+    </nav>
+  </header>
 
-    <!-- HEADER -->
-    <header class="fade-in">
-      <img src="assets/branding/logo.svg" alt="Sovereign IT Services" height="48" />
-      <nav>
-        <a href="#services">Services</a>
-        <a href="#architecture">Architecture</a>
-        <a href="#trust">Trust</a>
-      </nav>
-    </header>
-
+  <main>
     <!-- HERO -->
-    <section class="hero fade-in">
+    <section class="hero section-bracket reveal">
       <div>
-        <h1 style="font-size:var(--text-xl);margin-bottom:12px;">
-          Cyber Resilience Built for Sovereign Nations and High‑Impact Enterprises
-        </h1>
-        <p style="margin-bottom:24px;">
-          Sovereign IT Services delivers a unified security, cloud, and infrastructure platform engineered
-          for environments where uptime, compliance, and trust are non‑negotiable.
-        </p>
-        <p>
-          We help tribal governments and mission‑critical organizations modernize securely — integrating
-          cybersecurity, cloud operations, physical security, and networking into a single, resilient
-          architecture.
+        <h1 class="holo-title">Cyber Resilience Built for Sovereign Nations</h1>
+        <p class="typing">
+          Unified cybersecurity, cloud, and physical infrastructure engineered for tribal and enterprise sovereignty.
         </p>
         <div class="hero-actions">
           <button class="btn-primary">Schedule a Strategy Session</button>
-          <button class="btn-outline">View the Reference Architecture</button>
+          <button class="btn-outline">View Reference Architecture</button>
         </div>
       </div>
-
       <div class="hero-visual">
+        <div class="particle-field" id="particles"></div>
         <img src="assets/hero/tribal-cyber-landscape.svg" alt="Tribal cyber landscape" />
       </div>
     </section>
@@ -182,27 +42,24 @@
     <div class="section-divider"></div>
 
     <!-- SERVICES -->
-    <section id="services" class="section fade-in">
-      <h2>Core Services</h2>
-      <div class="section-grid" style="margin-top:24px;">
+    <section id="services" class="section-bracket reveal">
+      <h2 class="section-header">Core Services</h2>
+      <div class="section-grid">
         <article class="card">
           <img src="assets/icons/shield.svg" class="section-icon" />
           <h3>Cybersecurity</h3>
-          <p>Modern threat detection, SOC visibility, and incident response aligned to NIST and SOC 2.</p>
+          <p>Advanced threat detection, SOC visibility, and incident response aligned to NIST and SOC 2.</p>
         </article>
-
         <article class="card">
           <img src="assets/icons/cloud.svg" class="section-icon" />
           <h3>Cloud Infrastructure</h3>
           <p>Secure AWS/Azure landing zones, identity governance, and data protection frameworks.</p>
         </article>
-
         <article class="card">
           <img src="assets/icons/camera.svg" class="section-icon" />
           <h3>Physical Security</h3>
           <p>Integrated surveillance, access control, and unified physical‑digital risk management.</p>
         </article>
-
         <article class="card">
           <img src="assets/icons/network.svg" class="section-icon" />
           <h3>Networking</h3>
@@ -211,31 +68,39 @@
       </div>
     </section>
 
-    <div class="section-divider"></div>
+    <div class="circuit-connector"></div>
 
     <!-- ARCHITECTURE -->
-    <section id="architecture" class="section fade-in">
-      <h2>Reference Architecture</h2>
-      <p>A unified model connecting tribal government, data center, cloud, and endpoint environments.</p>
-      <img src="assets/system-map.svg" style="width:100%;border-radius:16px;margin-top:24px;" />
+    <section id="architecture" class="section-bracket reveal">
+      <h2 class="section-header">Reference Architecture</h2>
+      <p>Dynamic visualization of how tribal government, cloud, and on‑prem environments connect securely.</p>
+
+      <div class="arch-hud">
+        <div class="arch-hud-frame">
+          <div class="arch-hud-label">ARCH‑TOPOLOGY · LIVE MODEL</div>
+          <div class="arch-hud-corners"></div>
+          <div class="arch-hud-grid"></div>
+          <div class="arch-holo">
+            <img src="assets/system-map.svg" class="arch-map arch-float" />
+          </div>
+        </div>
+      </div>
     </section>
 
-    <div class="section-divider"></div>
+    <div class="circuit-connector"></div>
 
     <!-- TRUST -->
-    <section id="trust" class="section fade-in">
-      <h2>Trust & Resilience</h2>
-      <div class="section-grid" style="margin-top:24px;">
+    <section id="trust" class="section-bracket reveal">
+      <h2 class="section-header">Trust & Resilience</h2>
+      <div class="section-grid">
         <article class="card">
           <h3>Resilience‑First Engineering</h3>
-          <p>Systems designed to anticipate, withstand, recover, and evolve.</p>
+          <p>Systems designed to anticipate, withstand, recover, and evolve under any conditions.</p>
         </article>
-
         <article class="card">
           <h3>Compliance‑Aligned Operations</h3>
-          <p>SOC 2, NIST CSF, CJIS, HIPAA, and tribal governance frameworks.</p>
+          <p>SOC 2, NIST CSF, CJIS, HIPAA, and tribal governance frameworks built into every layer.</p>
         </article>
-
         <article class="card">
           <h3>Sovereign‑Aligned Technology</h3>
           <p>Data ownership, transparency, and long‑term sustainability for tribal nations.</p>
@@ -243,24 +108,60 @@
       </div>
     </section>
 
-    <!-- FOOTER -->
     <footer>
       © <span id="year"></span> Sovereign IT Services · Cyber Resilience for Sovereign Nations
     </footer>
+  </main>
 
-  </div>
-
-  <!-- Scroll-triggered fade-in script -->
   <script>
+    // Year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Fade-in observer
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
         if (entry.isIntersecting) entry.target.classList.add('visible');
       });
     }, { threshold: 0.2 });
+    document.querySelectorAll('.reveal, .section-header').forEach(el => observer.observe(el));
 
-    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
-    document.getElementById('year').textContent = new Date().getFullYear();
+    // Scroll progress bar
+    const progressBar = document.getElementById('scroll-progress');
+    window.addEventListener('scroll', () => {
+      const scrollTop = window.scrollY;
+      const docHeight = document.body.scrollHeight - window.innerHeight;
+      progressBar.style.width = (scrollTop / docHeight) * 100 + "%";
+    });
+
+    // Particle field
+    const particleContainer = document.getElementById('particles');
+    for (let i = 0; i < 40; i++) {
+      const p = document.createElement('div');
+      p.classList.add('particle');
+      p.style.left = Math.random() * 100 + "%";
+      p.style.bottom = Math.random() * -100 + "vh";
+      p.style.animationDelay = Math.random() * 8 + "s";
+      p.style.animationDuration = 10 + Math.random() * 10 + "s";
+      particleContainer.appendChild(p);
+    }
+
+    // 3D tilt hero
+    const heroImg = document.querySelector('.hero-visual img');
+    document.querySelector('.hero-visual').addEventListener('mousemove', e => {
+      const rect = e.currentTarget.getBoundingClientRect();
+      const x = e.clientX - rect.left - rect.width / 2;
+      const y = e.clientY - rect.top - rect.height / 2;
+      heroImg.style.transform = `translateY(${window.scrollY * 0.15}px) rotateX(${y / -25}deg) rotateY(${x / 25}deg)`;
+    });
+    document.querySelector('.hero-visual').addEventListener('mouseleave', () => {
+      heroImg.style.transform = 'translateY(0px) rotateX(0deg) rotateY(0deg)';
+    });
+
+    // Theme toggle
+    const toggle = document.getElementById('themeToggle');
+    toggle.addEventListener('click', () => {
+      document.documentElement.classList.toggle('light');
+    });
   </script>
-
 </body>
 </html>
