@@ -1,18 +1,24 @@
+/* THEME TOKENS */
 :root {
   --bg: #05060a;
   --bg-elevated: #0b0d14;
   --bg-soft: #11141f;
   --fg: #f5f7ff;
   --fg-muted: #a3acc7;
+
   --accent: #4f8cff;
   --accent-soft: rgba(79, 140, 255, 0.2);
   --accent-strong: #7b5cff;
+
   --good: #3ad9a5;
   --warn: #f7c948;
+
   --border-subtle: rgba(255, 255, 255, 0.06);
+
   --radius-lg: 18px;
   --radius-md: 12px;
   --radius-sm: 8px;
+
   --shadow-soft: 0 24px 80px rgba(0, 0, 0, 0.7);
   --transition-fast: 180ms ease-out;
   --transition-med: 260ms ease-out;
@@ -25,13 +31,14 @@
   --bg-soft: #e7ebf7;
   --fg: #05060a;
   --fg-muted: #5b6275;
+
   --accent: #2f5bff;
   --accent-soft: rgba(47, 91, 255, 0.12);
   --accent-strong: #7b3dff;
+
   --border-subtle: rgba(5, 6, 10, 0.08);
   --shadow-soft: 0 18px 50px rgba(0, 0, 0, 0.12);
 }
-<div class="section-divider"></div>
 
 /* RESET */
 *,
@@ -39,7 +46,11 @@
 *::after {
   box-sizing: border-box;
 }
-<div class="section-divider"></div>
+
+/* BASE */
+html {
+  scroll-behavior: smooth;
+}
 
 html,
 body {
@@ -55,7 +66,6 @@ body {
 body {
   min-height: 100vh;
 }
-<div class="section-divider"></div>
 
 /* LAYOUT */
 main {
@@ -65,18 +75,75 @@ main {
 }
 
 @media (max-width: 768px) {
-  main
-  
-<div class="section-divider"></div>
-
-  /* Smooth scroll */
-html {
-  scroll-behavior: smooth;
+  main {
+    padding: 72px 16px 56px;
+  }
 }
-  
-<div class="section-divider"></div>
 
-/* Section fade-in on scroll */
+/* SECTION DIVIDER (NEON) */
+.section-divider {
+  width: 100%;
+  height: 1px;
+  margin: 80px 0;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(79, 140, 255, 0.4),
+    rgba(123, 92, 255, 0.4),
+    rgba(58, 217, 165, 0.4),
+    transparent
+  );
+  opacity: 0.6;
+}
+
+/* CARDS + NEON HOVER BORDER */
+.card {
+  position: relative;
+  background: var(--bg-elevated);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-subtle);
+  padding: 20px 20px 18px;
+  box-shadow: var(--shadow-soft);
+  transition:
+    border-color 0.3s ease,
+    box-shadow 0.3s ease,
+    transform 0.3s ease;
+  overflow: hidden;
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  background: radial-gradient(circle at top left, rgba(79, 140, 255, 0.35), transparent 55%),
+              radial-gradient(circle at bottom right, rgba(58, 217, 165, 0.35), transparent 55%);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 32px 80px rgba(0,0,0,0.85);
+  border-color: var(--accent);
+}
+
+.card:hover::before {
+  opacity: 0.35;
+}
+
+.card h3 {
+  margin-top: 0;
+  margin-bottom: 8px;
+  font-size: 1.05rem;
+}
+
+.card:hover h3 {
+  color: var(--accent);
+}
+
+/* SECTION FADE-IN ON SCROLL */
 .reveal {
   opacity: 0;
   transform: translateY(30px);
@@ -87,12 +154,24 @@ html {
   opacity: 1;
   transform: translateY(0);
 }
-  <div class="section-divider"></div>
 
-/* Animated gradient border */
+/* HERO / PARALLAX */
+.hero-visual {
+  position: relative;
+  overflow: hidden;
+  perspective: 1000px;
+}
+
+.hero-visual img {
+  transform: translateY(0px);
+  transition: transform 0.2s ease-out;
+  will-change: transform;
+}
+
+/* ANIMATED GRADIENT BORDER WRAPPER */
 .gradient-border {
   position: relative;
-  border-radius: 18px;
+  border-radius: var(--radius-lg);
   overflow: hidden;
 }
 
@@ -109,54 +188,25 @@ html {
   0% { filter: hue-rotate(0deg); }
   100% { filter: hue-rotate(360deg); }
 }
-.section-divider {
-  width: 100%;
-  height: 1px;
-  margin: 80px 0;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(79, 140, 255, 0.4),
-    rgba(123, 92, 255, 0.4),
-    rgba(58, 217, 165, 0.4),
-    transparent
-  );
-  opacity: 0.6;
-}
-  
-<div class="section-divider"></div>
 
-.card:hover {
-  transform: translateY(-6px) scale(1.02);
-  box-shadow: 0 32px 80px rgba(0,0,0,0.85);
-}
-
-.card:hover::before {
-  opacity: 0.35;
-}
-
-.card:hover h3 {
-  color: var(--accent);
-}
-
-  <div class="section-divider"></div>
-
-.hero-visual {
-  perspective: 1000px;
-}
-
+/* FLOAT / PARALLAX ORB (IF USED) */
 .orb-main {
-  animation: float 10s ease-in-out infinite alternate,
-             orbParallax 12s ease-in-out infinite alternate;
+  animation:
+    float 10s ease-in-out infinite alternate,
+    orbParallax 12s ease-in-out infinite alternate;
+}
+
+@keyframes float {
+  0% { transform: translate3d(0,0,0); }
+  100% { transform: translate3d(0,-12px,0); }
 }
 
 @keyframes orbParallax {
   from { transform: translate3d(0,0,0) rotate(0deg); }
   to { transform: translate3d(-20px,10px,0) rotate(8deg); }
 }
-  
-  <div class="section-divider"></div>
 
+/* GLOW PULSE UTILITY */
 .glow-pulse {
   animation: pulse 2.8s ease-in-out infinite;
 }
@@ -166,9 +216,8 @@ html {
   50% { opacity: 1; }
   100% { opacity: 0.4; }
 }
-  
-    <div class="section-divider"></div>
 
+/* GRADIENT TEXT */
 .gradient-text {
   background: linear-gradient(90deg, #4F8CFF, #7B5CFF, #3AD9A5);
   -webkit-background-clip: text;
