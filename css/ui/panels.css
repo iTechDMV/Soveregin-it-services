@@ -1,0 +1,28 @@
+/* PANELS — Glass, grid overlay, subtle glow */
+
+.panel {
+  background: rgba(255,255,255,0.04);
+  border-radius: var(--radius-lg);
+  padding: var(--space-24);
+  border: 1px solid var(--border-subtle);
+  backdrop-filter: blur(12px);
+  position: relative;
+  overflow: hidden;
+}
+
+.panel::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(
+    rgba(255,255,255,0.03) 1px,
+    transparent 1px
+  ),
+  linear-gradient(
+    90deg,
+    rgba(255,255,255,0.03) 1px,
+    transparent 1px
+  );
+  background-size: 40px 40px;
+  pointer-events: none;
+}
