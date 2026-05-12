@@ -1,0 +1,11 @@
+/* SERVICES GRID */
+
+#services h2 {
+  text-align: center;
+}
+
+#services .section-sub {
+  text-align: center;
+  max-width: 640px;
+  margin: 0 auto var(--space-48);
+}
