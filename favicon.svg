@@ -1,0 +1,15 @@
+<svg width="64" height="64" viewBox="0 0 220 220" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="orbSmall" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#4F8CFF"/>
+      <stop offset="60%" stop-color="#7B5CFF"/>
+      <stop offset="100%" stop-color="transparent"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Outer ring -->
+  <circle cx="110" cy="110" r="95" stroke="#4F8CFF" stroke-width="14" opacity="0.85"/>
+
+  <!-- Inner orb -->
+  <circle cx="110" cy="110" r="70" fill="url(#orbSmall)" opacity="0.9"/>
+</svg>
