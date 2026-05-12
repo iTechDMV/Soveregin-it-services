@@ -1,109 +1,288 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Sovereign IT Services</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Sovereign IT Services — Cyber Resilience for Sovereign Nations</title>
   <link rel="stylesheet" href="css/styles.css" />
 </head>
-
 <body class="page-intro">
 
-  <!-- Cyber Grid Background -->
-  <div class="cyber-grid"></div>
-
-  <!-- Scroll-Synced Neon Beams -->
-  <div class="neon-beams">
+  <!-- Background & Neon Beams -->
+  <div class="cyber-grid" aria-hidden="true"></div>
+  <div class="neon-beams" aria-hidden="true">
     <span class="beam beam-1"></span>
     <span class="beam beam-2"></span>
     <span class="beam beam-3"></span>
   </div>
 
-  <!-- Scroll Progress Bar -->
-  <div id="scroll-progress"></div>
+  <!-- Scroll Progress -->
+  <div id="scroll-progress" aria-hidden="true"></div>
 
-  <!-- HEADER -->
-  <header class="reveal">
-    <img src="assets/branding/logo-sovereign.svg" alt="Sovereign IT Services" height="52" />
+  <!-- Header with dropdown nav -->
+  <header class="site-header reveal">
+    <div class="header-inner">
+      <a class="brand" href="/">
+        <img src="assets/branding/logo.svg" alt="Sovereign IT Services" height="48" />
+      </a>
 
-    <nav>
-      <a href="#services">Services</a>
-      <a href="#architecture">Architecture</a>
-      <a href="#trust">Trust</a>
-      <button id="themeToggle" class="btn-outline">Dark / Light</button>
-    </nav>
+      <nav class="main-nav" aria-label="Primary navigation">
+        <ul class="nav-list">
+          <li><a href="#platform">Platform</a></li>
+
+          <li class="nav-dropdown">
+            <button class="nav-toggle" aria-expanded="false">Services ▾</button>
+            <ul class="dropdown">
+              <li><a href="#managed-it">Managed IT</a></li>
+              <li><a href="#security">Managed Security</a></li>
+              <li><a href="#cloud">Cloud & Infrastructure</a></li>
+              <li><a href="#physical">Physical Security</a></li>
+            </ul>
+          </li>
+
+          <li class="nav-dropdown">
+            <button class="nav-toggle" aria-expanded="false">Solutions ▾</button>
+            <ul class="dropdown">
+              <li><a href="#industries">Industries</a></li>
+              <li><a href="#case-studies">Case Studies</a></li>
+              <li><a href="#certifications">Certifications</a></li>
+            </ul>
+          </li>
+
+          <li class="nav-dropdown">
+            <button class="nav-toggle" aria-expanded="false">Tribal ▾</button>
+            <ul class="dropdown">
+              <li><a href="#tribal">Tribal Platform</a></li>
+              <li><a href="#grants">Grants & Funding</a></li>
+              <li><a href="#tribal-soc">Tribal SOC</a></li>
+            </ul>
+          </li>
+
+          <li><a href="#contact" class="nav-cta">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <button id="themeToggle" class="btn-outline">Dark / Light</button>
+      </div>
+    </div>
   </header>
 
   <main>
 
     <!-- HERO -->
-    <section class="hero section-bracket reveal">
-      <div>
+    <section id="hero" class="hero section-bracket reveal">
+      <div class="hero-copy">
         <h1 class="holo-title">Cyber Resilience Built for Sovereign Nations</h1>
-
-        <p class="typing">
-          Unified cybersecurity, cloud, and physical infrastructure engineered for tribal and enterprise sovereignty.
-        </p>
+        <p class="typing">Unified cybersecurity, cloud, and physical infrastructure engineered for tribal and enterprise sovereignty.</p>
 
         <div class="hero-actions">
-          <button class="btn-primary">Schedule a Strategy Session</button>
-          <button class="btn-outline">View Reference Architecture</button>
+          <a href="#contact" class="btn-primary">Schedule a Strategy Session</a>
+          <a href="#architecture" class="btn-outline">View Reference Architecture</a>
+        </div>
+
+        <div class="hero-features">
+          <div class="feature">
+            <img src="assets/icons/shield.svg" class="icon-lg" alt="Cybersecurity" />
+            <div>
+              <strong>Resilience-first security</strong>
+              <div class="muted">SOC, XDR, IR</div>
+            </div>
+          </div>
+
+          <div class="feature">
+            <img src="assets/icons/cloud.svg" class="icon-lg" alt="Cloud" />
+            <div>
+              <strong>Cloud & Landing Zones</strong>
+              <div class="muted">AWS, Azure, Zero Trust</div>
+            </div>
+          </div>
+
+          <div class="feature">
+            <img src="assets/icons/tribal-mark.svg" class="icon-lg" alt="Sovereignty" />
+            <div>
+              <strong>Tribal Data Sovereignty</strong>
+              <div class="muted">Ownership, transparency</div>
+            </div>
+          </div>
         </div>
       </div>
 
       <div class="hero-visual">
-        <div class="particle-field" id="particles"></div>
+        <div class="particle-field" id="particles" aria-hidden="true"></div>
         <img src="assets/hero/tribal-cyber-landscape.svg" alt="Cyber Sovereignty" />
       </div>
     </section>
 
     <div class="section-divider"></div>
 
-    <!-- SERVICES -->
-    <section id="services" class="section-bracket reveal">
-      <h2 class="section-header">Core Services</h2>
+    <!-- PLATFORM OVERVIEW -->
+    <section id="platform" class="section-bracket reveal">
+      <h2 class="section-header">Platform Overview</h2>
+      <p class="lead">A unified platform that combines cybersecurity, cloud, and physical security into a single sovereign model.</p>
 
       <div class="section-grid">
-
-        <!-- AI CARD 1 -->
-        <article class="card card-ai">
-          <div class="card-top">
-            <span class="ai-badge">AI‑Assisted</span>
-          </div>
-          <h3>Threat Intelligence & Response</h3>
-          <p>AI‑assisted detection, correlation, and guided response workflows tuned for tribal and enterprise environments.</p>
+        <article class="card">
+          <img src="assets/icons/shield.svg" class="icon-md" alt="Cybersecurity" />
+          <h3>Cybersecurity</h3>
+          <p>Threat detection, SOC visibility, incident response, and continuous improvement aligned to NIST and SOC 2.</p>
         </article>
 
         <article class="card">
-          <img src="assets/icons/cloud.svg" class="section-icon" />
-          <h3>Cloud Infrastructure</h3>
-          <p>Secure AWS/Azure landing zones, identity governance, and data protection frameworks.</p>
+          <img src="assets/icons/cloud.svg" class="icon-md" alt="Cloud" />
+          <h3>Cloud & Infrastructure</h3>
+          <p>Secure landing zones, identity governance, backup, and disaster recovery for sovereign operations.</p>
         </article>
 
         <article class="card">
-          <img src="assets/icons/camera.svg" class="section-icon" />
+          <img src="assets/icons/camera.svg" class="icon-md" alt="Physical Security" />
           <h3>Physical Security</h3>
-          <p>Integrated surveillance, access control, and unified physical‑digital risk management.</p>
+          <p>Integrated VMS, access control, and unified physical‑digital risk management.</p>
         </article>
 
-        <!-- AI CARD 2 -->
-        <article class="card card-ai">
-          <div class="card-top">
-            <span class="ai-badge">AI‑Assisted</span>
-          </div>
-          <h3>Network Health & Optimization</h3>
-          <p>Continuous AI‑driven insights into latency, uptime, and routing across sovereign and enterprise networks.</p>
+        <article class="card">
+          <img src="assets/icons/tribal-mark.svg" class="icon-md" alt="Sovereignty" />
+          <h3>Tribal Sovereignty</h3>
+          <p>Data ownership, governance, and long‑term sustainability for tribal nations.</p>
         </article>
-
       </div>
     </section>
 
-    <div class="circuit-connector"></div>
+    <!-- MANAGED IT -->
+    <section id="managed-it" class="section-bracket reveal">
+      <h2 class="section-header">Managed IT Services</h2>
+      <p class="lead">Operational excellence for endpoints, networks, and user productivity.</p>
 
-    <!-- ARCHITECTURE -->
+      <div class="section-grid">
+        <article class="card">
+          <img src="assets/icons/network.svg" class="icon-md" alt="Networking" />
+          <h3>Network Operations</h3>
+          <p>SD‑WAN, fiber, wireless, and high‑availability routing for distributed sites.</p>
+        </article>
+
+        <article class="card">
+          <img src="assets/icons/fiber-node.svg" class="icon-md" alt="Fiber Node" />
+          <h3>Edge & Field Support</h3>
+          <p>Remote site management, field device lifecycle, and connectivity resilience.</p>
+        </article>
+
+        <article class="card">
+          <img src="assets/icons/datacenter.svg" class="icon-md" alt="Data Center" />
+          <h3>On‑Prem & Hybrid</h3>
+          <p>Data center operations, virtualization, and hybrid cloud orchestration.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- MANAGED SECURITY (SOC) -->
+    <section id="security" class="section-bracket reveal">
+      <h2 class="section-header">Managed Security Operations</h2>
+      <p class="lead">24/7 monitoring, threat intelligence, and guided incident response.</p>
+
+      <div class="section-grid">
+        <article class="card card-ai">
+          <div class="card-top"><span class="ai-badge">AI‑Assisted</span></div>
+          <img src="assets/icons/soc-screen.svg" class="icon-md" alt="SOC" />
+          <h3>SOC & XDR</h3>
+          <p>Continuous detection, correlation, and response across cloud and on‑prem environments.</p>
+        </article>
+
+        <article class="card">
+          <img src="assets/icons/zero-trust.svg" class="icon-md" alt="Zero Trust" />
+          <h3>Zero Trust</h3>
+          <p>Identity‑centric controls, segmentation, and least‑privilege enforcement.</p>
+        </article>
+
+        <article class="card">
+          <img src="assets/icons/shield.svg" class="icon-md" alt="Incident Response" />
+          <h3>Incident Response</h3>
+          <p>Playbooks, tabletop exercises, and rapid containment for critical incidents.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- CLOUD & INFRASTRUCTURE -->
+    <section id="cloud" class="section-bracket reveal">
+      <h2 class="section-header">Cloud & Infrastructure</h2>
+      <p class="lead">Secure cloud adoption with governance and resiliency baked in.</p>
+
+      <div class="section-grid">
+        <article class="card">
+          <img src="assets/icons/cloud.svg" class="icon-md" alt="Cloud" />
+          <h3>Landing Zones</h3>
+          <p>Secure, compliant cloud foundations for tribal and enterprise workloads.</p>
+        </article>
+
+        <article class="card">
+          <img src="assets/icons/datacenter.svg" class="icon-md" alt="DR" />
+          <h3>Backup & DR</h3>
+          <p>Automated backups, tested recovery plans, and cross‑zone replication.</p>
+        </article>
+
+        <article class="card">
+          <img src="assets/icons/compliance.svg" class="icon-md" alt="Compliance" />
+          <h3>Compliance & Governance</h3>
+          <p>SOC 2, NIST CSF, CJIS, HIPAA alignment and audit readiness.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- PHYSICAL SECURITY -->
+    <section id="physical" class="section-bracket reveal">
+      <h2 class="section-header">Physical Security Integration</h2>
+      <p class="lead">Video, access control, and unified risk management across sites.</p>
+
+      <div class="section-grid">
+        <article class="card">
+          <img src="assets/icons/camera.svg" class="icon-md" alt="Video Surveillance" />
+          <h3>Video Surveillance</h3>
+          <p>Cloud VMS, edge recording, and secure retention policies.</p>
+        </article>
+
+        <article class="card">
+          <img src="assets/icons/surveillance-dome.svg" class="icon-md" alt="Dome" />
+          <h3>VMS & Analytics</h3>
+          <p>AI analytics, privacy‑first retention, and secure streaming.</p>
+        </article>
+
+        <article class="card">
+          <img src="assets/icons/access-control.svg" class="icon-md" alt="Access Control" />
+          <h3>Access Control</h3>
+          <p>Federated identity, door controllers, and audit trails.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- TRIBAL GOVERNMENT SOLUTIONS -->
+    <section id="tribal" class="section-bracket reveal">
+      <h2 class="section-header">Tribal Government Solutions</h2>
+      <p class="lead">Sovereign‑first technology and governance for tribal nations.</p>
+
+      <div class="section-grid">
+        <article class="card">
+          <img src="assets/icons/tribal-mark.svg" class="icon-md" alt="Tribal Platform" />
+          <h3>Tribal Operations Cloud</h3>
+          <p>Platform for tribal services, records, and secure citizen data management.</p>
+        </article>
+
+        <article class="card">
+          <img src="assets/icons/compliance.svg" class="icon-md" alt="Compliance" />
+          <h3>Tribal SOC</h3>
+          <p>Visibility and incident response tailored to tribal governance and law.</p>
+        </article>
+
+        <article class="card">
+          <img src="assets/icons/shield.svg" class="icon-md" alt="Grants" />
+          <h3>Grants & Funding Support</h3>
+          <p>Assistance with funding, grant applications, and sustainability planning.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ARCHITECTURE (system map) -->
     <section id="architecture" class="section-bracket reveal">
       <h2 class="section-header">Reference Architecture</h2>
-      <p>A dynamic visualization of how tribal government, cloud, and on‑prem environments connect securely.</p>
+      <p class="lead">Live topology showing how tribal, cloud, and on‑prem environments interconnect.</p>
 
       <div class="arch-hud">
         <div class="arch-hud-frame">
@@ -112,54 +291,115 @@
           <div class="arch-hud-grid"></div>
 
           <div class="arch-holo">
-            <img src="assets/system-map.svg" class="arch-map arch-float" />
+            <img src="assets/system-map.svg" class="arch-map arch-float" alt="System Map" />
           </div>
         </div>
       </div>
     </section>
 
-    <div class="circuit-connector"></div>
-
-    <!-- TRUST -->
-    <section id="trust" class="section-bracket reveal">
-      <h2 class="section-header">Trust & Resilience</h2>
-
+    <!-- INDUSTRIES -->
+    <section id="industries" class="section-bracket reveal">
+      <h2 class="section-header">Industries Served</h2>
       <div class="section-grid">
         <article class="card">
-          <h3>Resilience‑First Engineering</h3>
-          <p>Systems designed to anticipate, withstand, recover, and evolve under any conditions.</p>
+          <h3>Tribal Nations</h3>
+          <p>Governance, sovereignty, and long‑term sustainability solutions.</p>
         </article>
-
         <article class="card">
-          <h3>Compliance‑Aligned Operations</h3>
-          <p>SOC 2, NIST CSF, CJIS, HIPAA, and tribal governance frameworks built into every layer.</p>
+          <h3>Healthcare</h3>
+          <p>HIPAA‑aligned security and resilient infrastructure.</p>
         </article>
-
         <article class="card">
-          <h3>Sovereign‑Aligned Technology</h3>
-          <p>Data ownership, transparency, and long‑term sustainability for tribal nations.</p>
+          <h3>Education</h3>
+          <p>Secure learning platforms and identity management.</p>
+        </article>
+        <article class="card">
+          <h3>Government</h3>
+          <p>Compliance, CJIS readiness, and secure operations.</p>
         </article>
       </div>
     </section>
 
-    <!-- FOOTER -->
-    <footer>
-      © <span id="year"></span> Sovereign IT Services · Cyber Resilience for Sovereign Nations
-    </footer>
+    <!-- CERTIFICATIONS -->
+    <section id="certifications" class="section-bracket reveal">
+      <h2 class="section-header">Certifications & Partnerships</h2>
+      <div class="cert-grid">
+        <div class="cert">AWS Partner</div>
+        <div class="cert">Microsoft Azure</div>
+        <div class="cert">Cisco</div>
+        <div class="cert">NIST</div>
+        <div class="cert">SOC 2</div>
+      </div>
+    </section>
+
+    <!-- CASE STUDIES -->
+    <section id="case-studies" class="section-bracket reveal">
+      <h2 class="section-header">Case Studies</h2>
+      <div class="case-grid">
+        <article class="case">
+          <h4>Tribal Government Modernization</h4>
+          <p>Cloud migration, SOC implementation, and sovereignty controls.</p>
+        </article>
+        <article class="case">
+          <h4>VMS & Campus Security</h4>
+          <p>Unified video, analytics, and secure retention for a multi‑site campus.</p>
+        </article>
+        <article class="case">
+          <h4>SOC as a Service</h4>
+          <p>24/7 monitoring and rapid incident response for a regional healthcare provider.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- CONTACT CTA -->
+    <section id="contact" class="section-bracket reveal">
+      <div class="contact-cta">
+        <h2>Ready to secure sovereignty?</h2>
+        <p>Schedule a strategy session and get a tailored plan for your nation or organization.</p>
+        <a href="mailto:hello@sovereignit.example" class="btn-primary large">Request Consultation</a>
+      </div>
+    </section>
 
   </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div>© <span id="year"></span> Sovereign IT Services · Cyber Resilience for Sovereign Nations</div>
+      <div class="footer-links">
+        <a href="#privacy">Privacy</a>
+        <a href="#terms">Terms</a>
+      </div>
+    </div>
+  </footer>
 
   <!-- SCRIPTS -->
   <script>
     // Year
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // Reveal on scroll
+    // Dropdown nav behavior
+    document.querySelectorAll('.nav-dropdown .nav-toggle').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const expanded = btn.getAttribute('aria-expanded') === 'true';
+        btn.setAttribute('aria-expanded', String(!expanded));
+        btn.parentElement.classList.toggle('open', !expanded);
+      });
+    });
+
+    // Close dropdowns when clicking outside
+    document.addEventListener('click', (e) => {
+      document.querySelectorAll('.nav-dropdown').forEach(dd => {
+        if (!dd.contains(e.target)) dd.classList.remove('open');
+      });
+    });
+
+    // Reveal on scroll (no blur/fade-in forced)
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
         if (entry.isIntersecting) entry.target.classList.add('visible');
       });
-    }, { threshold: 0.2 });
+    }, { threshold: 0.18 });
     document.querySelectorAll('.reveal, .section-header').forEach(el => observer.observe(el));
 
     // Scroll progress bar
@@ -167,14 +407,14 @@
     window.addEventListener('scroll', () => {
       const scrollTop = window.scrollY;
       const docHeight = document.body.scrollHeight - window.innerHeight;
-      progressBar.style.width = (scrollTop / docHeight) * 100 + "%";
+      progressBar.style.width = (docHeight > 0 ? (scrollTop / docHeight) * 100 : 0) + "%";
     });
 
     // Particle field
     const particleContainer = document.getElementById('particles');
     for (let i = 0; i < 40; i++) {
       const p = document.createElement('div');
-      p.classList.add('particle');
+      p.className = 'particle';
       p.style.left = Math.random() * 100 + "%";
       p.style.bottom = Math.random() * -100 + "vh";
       p.style.animationDelay = Math.random() * 8 + "s";
@@ -183,17 +423,20 @@
     }
 
     // 3D tilt hero
-    const heroImg = document.querySelector('.hero-visual img');
-    document.querySelector('.hero-visual').addEventListener('mousemove', e => {
-      const rect = e.currentTarget.getBoundingClientRect();
-      const x = e.clientX - rect.left - rect.width / 2;
-      const y = e.clientY - rect.top - rect.height / 2;
-      heroImg.style.transform =
-        `translateY(${window.scrollY * 0.15}px) rotateX(${y / -25}deg) rotateY(${x / 25}deg)`;
-    });
-    document.querySelector('.hero-visual').addEventListener('mouseleave', () => {
-      heroImg.style.transform = 'translateY(0px) rotateX(0deg) rotateY(0deg)';
-    });
+    const heroVisual = document.querySelector('.hero-visual');
+    const heroImg = heroVisual && heroVisual.querySelector('img');
+    if (heroVisual && heroImg) {
+      heroVisual.addEventListener('mousemove', e => {
+        const rect = e.currentTarget.getBoundingClientRect();
+        const x = e.clientX - rect.left - rect.width / 2;
+        const y = e.clientY - rect.top - rect.height / 2;
+        heroImg.style.transform =
+          `translateY(${window.scrollY * 0.08}px) rotateX(${y / -25}deg) rotateY(${x / 25}deg)`;
+      });
+      heroVisual.addEventListener('mouseleave', () => {
+        heroImg.style.transform = 'translateY(0px) rotateX(0deg) rotateY(0deg)';
+      });
+    }
 
     // Dark/Light mode toggle
     const toggle = document.getElementById('themeToggle');
@@ -206,14 +449,14 @@
     window.addEventListener('scroll', () => {
       const maxScroll = document.body.scrollHeight - window.innerHeight;
       const progress = maxScroll > 0 ? window.scrollY / maxScroll : 0;
-
       beams.forEach((beam, index) => {
         const offset = (progress * 80) + index * 10;
         beam.style.transform = `translateY(${offset}px)`;
-        beam.style.opacity = 0.15 + progress * 0.35;
+        beam.style.opacity = 0.12 + progress * 0.45;
       });
     });
   </script>
 
 </body>
 </html>
+
