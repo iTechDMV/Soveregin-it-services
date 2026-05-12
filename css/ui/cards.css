@@ -1,0 +1,36 @@
+/* CARDS — Gradient border, hover lift, glow */
+
+.card {
+  background: var(--slate);
+  padding: var(--space-24);
+  border-radius: var(--radius-lg);
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--border-subtle);
+  transition: var(--med);
+  box-shadow: var(--shadow-card);
+}
+
+.card:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: var(--shadow-hover);
+}
+
+.gradient-border {
+  position: relative;
+}
+
+.gradient-border::before {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  background: var(--gradient-primary);
+  z-index: -1;
+  border-radius: inherit;
+  animation: borderShift 6s linear infinite;
+}
+
+@keyframes borderShift {
+  0% { filter: hue-rotate(0deg); }
+  100% { filter: hue-rotate(360deg); }
+}
