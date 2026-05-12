@@ -1,0 +1,22 @@
+/* Typography Tokens */
+
+:root {
+  --font-heading: 'Poppins', sans-serif;
+  --font-body: 'Source Sans Pro', sans-serif;
+  --font-ui: 'Inter', sans-serif;
+
+  --text-xl: 2.25rem;
+  --text-lg: 1.5rem;
+  --text-md: 1.125rem;
+  --text-sm: 0.95rem;
+}
+
+h1, h2, h3 {
+  font-family: var(--font-heading);
+  color: var(--text-primary);
+}
+
+p, span, li {
+  font-family: var(--font-body);
+  color: var(--text-secondary);
+}
