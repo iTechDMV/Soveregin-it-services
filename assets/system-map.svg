@@ -1,94 +1,69 @@
-<svg width="1200" height="700" viewBox="0 0 1200 700"
-     xmlns="http://www.w3.org/2000/svg">
+<svg viewBox="0 0 800 420" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="zoneBorder" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#4F8CFF"/>
+      <stop offset="50%" stop-color="#7B5CFF"/>
+      <stop offset="100%" stop-color="#3AD9A5"/>
+    </linearGradient>
+  </defs>
 
-  <!-- Background -->
-  <rect width="1200" height="700" fill="#0d1117"/>
+  <!-- ZONES -->
+  <rect x="40" y="60" width="220" height="260" rx="16"
+        fill="rgba(5,6,10,0.9)" stroke="url(#zoneBorder)" stroke-width="1.5"/>
+  <text x="60" y="90" fill="#a3acc7" font-size="12" letter-spacing="2">TRIBAL GOVERNMENT</text>
 
-  <!-- Tribal geometry -->
-  <path d="M0 600L600 450L1200 600"
-        stroke="#22d3ee" stroke-width="2" opacity="0.15" fill="none"/>
-  <path d="M0 650L600 500L1200 650"
-        stroke="#22c55e" stroke-width="2" opacity="0.12" fill="none"/>
+  <rect x="290" y="40" width="220" height="160" rx="16"
+        fill="rgba(5,6,10,0.9)" stroke="url(#zoneBorder)" stroke-width="1.5"/>
+  <text x="310" y="70" fill="#a3acc7" font-size="12" letter-spacing="2">CLOUD PLATFORM</text>
 
-  <!-- Section titles -->
-  <text x="100" y="80" fill="#22d3ee" font-family="Poppins" font-size="28">
-    Tribal Government
-  </text>
-  <text x="500" y="80" fill="#22d3ee" font-family="Poppins" font-size="28">
-    Data Center
-  </text>
-  <text x="900" y="80" fill="#22d3ee" font-family="Poppins" font-size="28">
-    Cloud (AWS / Azure)
-  </text>
+  <rect x="290" y="220" width="220" height="160" rx="16"
+        fill="rgba(5,6,10,0.9)" stroke="url(#zoneBorder)" stroke-width="1.5"/>
+  <text x="310" y="250" fill="#a3acc7" font-size="12" letter-spacing="2">DATA CENTER</text>
 
-  <!-- Tribal Government Node -->
-  <rect x="60" y="120" width="220" height="140" rx="12"
-        stroke="#22d3ee" stroke-width="3" fill="#111827"/>
-  <text x="90" y="200" fill="#22c55e" font-family="Inter" font-size="20">
-    Identity • Governance
-  </text>
+  <rect x="550" y="120" width="220" height="200" rx="16"
+        fill="rgba(5,6,10,0.9)" stroke="url(#zoneBorder)" stroke-width="1.5"/>
+  <text x="570" y="150" fill="#a3acc7" font-size="12" letter-spacing="2">EDGE / FIELD SITES</text>
 
-  <!-- Data Center Node -->
-  <rect x="460" y="120" width="280" height="140" rx="12"
-        stroke="#22d3ee" stroke-width="3" fill="#111827"/>
-  <text x="500" y="200" fill="#22c55e" font-family="Inter" font-size="20">
-    Servers • Storage • SIEM
-  </text>
+  <!-- LINES -->
+  <path id="link-gov-cloud" class="arch-line"
+        d="M260 190 C 310 150, 330 130, 380 120" />
+  <path id="link-gov-dc" class="arch-line"
+        d="M260 210 C 310 240, 330 260, 380 280" />
+  <path id="link-cloud-edge" class="arch-line"
+        d="M510 140 C 560 150, 580 170, 600 190" />
+  <path id="link-dc-edge" class="arch-line"
+        d="M510 300 C 560 290, 580 260, 600 230" />
 
-  <!-- Cloud Node -->
-  <rect x="840" y="120" width="280" height="140" rx="12"
-        stroke="#22d3ee" stroke-width="3" fill="#111827"/>
-  <text x="880" y="200" fill="#22c55e" font-family="Inter" font-size="20">
-    Compute • IAM • Analytics
-  </text>
+  <!-- NODES -->
+  <circle class="arch-node" cx="260" cy="190" r="6" />
+  <circle class="arch-node" cx="260" cy="210" r="6" />
+  <circle class="arch-node" cx="380" cy="120" r="6" />
+  <circle class="arch-node" cx="380" cy="280" r="6" />
+  <circle class="arch-node" cx="600" cy="190" r="6" />
+  <circle class="arch-node" cx="600" cy="230" r="6" />
 
-  <!-- Connectors -->
-  <path d="M280 190H460" stroke="#22d3ee" stroke-width="3"/>
-  <path d="M740 190H840" stroke="#22d3ee" stroke-width="3"/>
+  <!-- PACKETS -->
+  <circle class="arch-packet" r="4">
+    <animateMotion dur="4s" repeatCount="indefinite">
+      <mpath xlink:href="#link-gov-cloud" />
+    </animateMotion>
+  </circle>
 
-  <!-- Security Layers -->
-  <text x="100" y="340" fill="#22d3ee" font-family="Poppins" font-size="26">
-    Security Layers
-  </text>
+  <circle class="arch-packet" r="4">
+    <animateMotion dur="5.5s" repeatCount="indefinite" begin="1.5s">
+      <mpath xlink:href="#link-gov-dc" />
+    </animateMotion>
+  </circle>
 
-  <!-- Layer Boxes -->
-  <g>
-    <rect x="60" y="360" width="240" height="80" rx="10"
-          stroke="#22c55e" stroke-width="3" fill="#111827"/>
-    <text x="120" y="410" fill="#22d3ee" font-family="Inter" font-size="20">
-      Identity
-    </text>
+  <circle class="arch-packet" r="4">
+    <animateMotion dur="4.5s" repeatCount="indefinite" begin="0.8s">
+      <mpath xlink:href="#link-cloud-edge" />
+    </animateMotion>
+  </circle>
 
-    <rect x="340" y="360" width="240" height="80" rx="10"
-          stroke="#22c55e" stroke-width="3" fill="#111827"/>
-    <text x="400" y="410" fill="#22d3ee" font-family="Inter" font-size="20">
-      Application
-    </text>
-
-    <rect x="620" y="360" width="240" height="80" rx="10"
-          stroke="#22c55e" stroke-width="3" fill="#111827"/>
-    <text x="700" y="410" fill="#22d3ee" font-family="Inter" font-size="20">
-      Data
-    </text>
-
-    <rect x="900" y="360" width="240" height="80" rx="10"
-          stroke="#22c55e" stroke-width="3" fill="#111827"/>
-    <text x="960" y="410" fill="#22d3ee" font-family="Inter" font-size="20">
-      Network
-    </text>
-  </g>
-
-  <!-- Layer Connectors -->
-  <path d="M300 400H340" stroke="#22d3ee" stroke-width="3"/>
-  <path d="M580 400H620" stroke="#22d3ee" stroke-width="3"/>
-  <path d="M860 400H900" stroke="#22d3ee" stroke-width="3"/>
-
-  <!-- Subscribers -->
-  <text x="520" y="540" fill="#22d3ee" font-family="Poppins" font-size="26">
-    Subscribers / Endpoints
-  </text>
-
-  <circle cx="600" cy="600" r="40"
-          stroke="#22d3ee" stroke-width="4" fill="#111827"/>
-  <circle cx="600" cy="600" r="12" fill="#22c55e"/>
+  <circle class="arch-packet" r="4">
+    <animateMotion dur="6s" repeatCount="indefinite" begin="2s">
+      <mpath xlink:href="#link-dc-edge" />
+    </animateMotion>
+  </circle>
 </svg>
