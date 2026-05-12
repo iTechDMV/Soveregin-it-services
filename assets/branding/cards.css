@@ -1,0 +1,19 @@
+/* Glass Card */
+.card {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid var(--border-light);
+  border-radius: 12px;
+  padding: 24px;
+  backdrop-filter: blur(12px);
+  transition: 0.25s ease;
+}
+
+.card:hover {
+  border-color: var(--brand-cyan);
+  box-shadow: var(--glow-cyan);
+}
+
+/* Tribal Border Variant */
+.card-tribal {
+  border-image: linear-gradient(45deg, var(--brand-cyan), var(--brand-emerald)) 1;
+}
