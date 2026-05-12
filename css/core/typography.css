@@ -1,0 +1,42 @@
+/* TYPOGRAPHY SYSTEM */
+
+h1, h2, h3, h4 {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+h1 {
+  font-size: clamp(2.4rem, 4vw, 4rem);
+}
+
+h2 {
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
+  margin-bottom: 16px;
+}
+
+h3 {
+  font-size: 1.4rem;
+  margin-bottom: 8px;
+}
+
+p {
+  font-size: 1.05rem;
+  color: var(--mist);
+  margin-bottom: 12px;
+}
+
+.section-sub {
+  font-size: 1.15rem;
+  color: var(--fog);
+  opacity: 0.8;
+  margin-bottom: 32px;
+}
+
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.85rem;
+  opacity: 0.7;
+  margin-bottom: 12px;
+}
