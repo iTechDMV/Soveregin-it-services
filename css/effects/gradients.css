@@ -1,0 +1,29 @@
+/* GRADIENT TEXT + UI */
+
+.gradient-text {
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: hueShift 8s linear infinite;
+}
+
+@keyframes hueShift {
+  0% { filter: hue-rotate(0deg); }
+  100% { filter: hue-rotate(360deg); }
+}
+
+/* Section Divider */
+.section-divider {
+  width: 100%;
+  height: 1px;
+  margin: var(--space-80) 0;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(79, 140, 255, 0.4),
+    rgba(123, 92, 255, 0.4),
+    rgba(58, 217, 165, 0.4),
+    transparent
+  );
+  opacity: 0.6;
+}
