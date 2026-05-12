@@ -8,15 +8,23 @@
 </head>
 
 <body class="page-intro">
+
   <!-- Cyber Grid Background -->
   <div class="cyber-grid"></div>
+
+  <!-- Scroll-Synced Neon Beams -->
+  <div class="neon-beams">
+    <span class="beam beam-1"></span>
+    <span class="beam beam-2"></span>
+    <span class="beam beam-3"></span>
+  </div>
 
   <!-- Scroll Progress Bar -->
   <div id="scroll-progress"></div>
 
   <!-- HEADER -->
   <header class="reveal">
-    <img src="assets/branding/logo.svg" alt="Sovereign IT Services" height="48" />
+    <img src="assets/branding/logo-sovereign.svg" alt="Sovereign IT Services" height="52" />
 
     <nav>
       <a href="#services">Services</a>
@@ -56,10 +64,14 @@
       <h2 class="section-header">Core Services</h2>
 
       <div class="section-grid">
-        <article class="card">
-          <img src="assets/icons/shield.svg" class="section-icon" />
-          <h3>Cybersecurity</h3>
-          <p>Advanced threat detection, SOC visibility, and incident response aligned to NIST and SOC 2.</p>
+
+        <!-- AI CARD 1 -->
+        <article class="card card-ai">
+          <div class="card-top">
+            <span class="ai-badge">AI‑Assisted</span>
+          </div>
+          <h3>Threat Intelligence & Response</h3>
+          <p>AI‑assisted detection, correlation, and guided response workflows tuned for tribal and enterprise environments.</p>
         </article>
 
         <article class="card">
@@ -74,11 +86,15 @@
           <p>Integrated surveillance, access control, and unified physical‑digital risk management.</p>
         </article>
 
-        <article class="card">
-          <img src="assets/icons/network.svg" class="section-icon" />
-          <h3>Networking</h3>
-          <p>High‑availability fiber, wireless, and SD‑WAN for distributed tribal and enterprise sites.</p>
+        <!-- AI CARD 2 -->
+        <article class="card card-ai">
+          <div class="card-top">
+            <span class="ai-badge">AI‑Assisted</span>
+          </div>
+          <h3>Network Health & Optimization</h3>
+          <p>Continuous AI‑driven insights into latency, uptime, and routing across sovereign and enterprise networks.</p>
         </article>
+
       </div>
     </section>
 
@@ -144,7 +160,6 @@
         if (entry.isIntersecting) entry.target.classList.add('visible');
       });
     }, { threshold: 0.2 });
-
     document.querySelectorAll('.reveal, .section-header').forEach(el => observer.observe(el));
 
     // Scroll progress bar
@@ -184,6 +199,19 @@
     const toggle = document.getElementById('themeToggle');
     toggle.addEventListener('click', () => {
       document.documentElement.classList.toggle('light');
+    });
+
+    // Scroll-synced neon beams
+    const beams = document.querySelectorAll('.neon-beams .beam');
+    window.addEventListener('scroll', () => {
+      const maxScroll = document.body.scrollHeight - window.innerHeight;
+      const progress = maxScroll > 0 ? window.scrollY / maxScroll : 0;
+
+      beams.forEach((beam, index) => {
+        const offset = (progress * 80) + index * 10;
+        beam.style.transform = `translateY(${offset}px)`;
+        beam.style.opacity = 0.15 + progress * 0.35;
+      });
     });
   </script>
 
