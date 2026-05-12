@@ -71,21 +71,22 @@ body {
   min-height: 100vh;
 }
 
-/* Page intro */
+/* ============================================================
+   CLEAN FADE-IN INTRO (NO BLUR)
+   ============================================================ */
 .page-intro {
   opacity: 0;
-  filter: blur(12px);
-  transform: scale(0.96);
-  animation: introReveal 1.2s ease-out forwards;
+  animation: introReveal 0.8s ease-out forwards;
 }
 
 @keyframes introReveal {
-  0% { opacity: 0; filter: blur(12px); transform: scale(0.96); }
-  60% { opacity: 1; filter: blur(0); transform: scale(1.01); }
-  100% { opacity: 1; transform: scale(1); }
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
-/* Scroll progress bar */
+/* ============================================================
+   SCROLL PROGRESS BAR
+   ============================================================ */
 #scroll-progress {
   position: fixed;
   top: 0;
@@ -120,7 +121,7 @@ body {
 }
 
 /* ============================================================
-   LAYOUT
+   HEADER + NAV
    ============================================================ */
 header {
   max-width: 1120px;
@@ -131,55 +132,6 @@ header {
   justify-content: space-between;
 }
 
-main {
-  max-width: 1120px;
-  margin: 0 auto;
-  padding: 32px 20px 72px;
-}
-
-@media (max-width: 768px) {
-  header {
-    flex-direction: column;
-    gap: 16px;
-    align-items: flex-start;
-  }
-  main {
-    padding: 24px 16px 56px;
-  }
-}
-
-/* Hero layout */
-.hero {
-  display: grid;
-  grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
-  gap: 32px;
-  align-items: center;
-  margin-top: 40px;
-}
-
-@media (max-width: 900px) {
-  .hero {
-    grid-template-columns: 1fr;
-  }
-}
-
-/* Footer */
-footer {
-  margin-top: 80px;
-  padding-top: 24px;
-  border-top: 2px solid transparent;
-  background: linear-gradient(#0d1117, #0d1117) padding-box,
-              linear-gradient(90deg, #4F8CFF, #7B5CFF, #3AD9A5) border-box;
-  text-align: center;
-  color: var(--fg-muted);
-  font-size: 0.85rem;
-  padding-bottom: 24px;
-  border-radius: 12px 12px 0 0;
-}
-
-/* ============================================================
-   NAV
-   ============================================================ */
 nav {
   display: flex;
   align-items: center;
@@ -214,6 +166,120 @@ nav a:hover {
 
 nav a:hover::after {
   width: 100%;
+}
+
+/* ============================================================
+   MAIN LAYOUT
+   ============================================================ */
+main {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 32px 20px 72px;
+}
+
+/* ============================================================
+   HERO SECTION
+   ============================================================ */
+.hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+  gap: 32px;
+  align-items: center;
+  margin-top: 40px;
+}
+
+.hero-visual {
+  position: relative;
+  overflow: hidden;
+  perspective: 1200px;
+}
+
+.hero-visual img {
+  width: 100%;
+  border-radius: 16px;
+  border: 1px solid rgba(79,140,255,0.5);
+  transform: translateY(0px) rotateX(0deg) rotateY(0deg);
+  transition: transform .2s ease-out;
+  will-change: transform;
+}
+
+/* Particle field */
+.particle-field {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  z-index: -1;
+}
+
+.particle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: rgba(79,140,255,0.8);
+  border-radius: 50%;
+  box-shadow: 0 0 8px rgba(79,140,255,0.8);
+  animation: floatParticle 12s linear infinite;
+}
+
+@keyframes floatParticle {
+  0% { transform: translateY(0) scale(1); opacity: 1; }
+  100% { transform: translateY(-120vh) scale(0.4); opacity: 0; }
+}
+
+/* ============================================================
+   HOLOGRAPHIC HERO TITLE
+   ============================================================ */
+.holo-title {
+  position: relative;
+  display: inline-block;
+  background: linear-gradient(90deg, #4F8CFF, #7B5CFF, #3AD9A5);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: holoShift 6s linear infinite;
+}
+
+.holo-title::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, transparent 0%, rgba(255,255,255,0.25) 50%, transparent 100%);
+  mix-blend-mode: overlay;
+  animation: holoSweep 3.5s ease-in-out infinite;
+}
+
+@keyframes holoShift {
+  0% { filter: hue-rotate(0deg); }
+  100% { filter: hue-rotate(360deg); }
+}
+
+@keyframes holoSweep {
+  0% { transform: translateX(-120%); }
+  50% { transform: translateX(120%); }
+  100% { transform: translateX(-120%); }
+}
+
+/* ============================================================
+   TERMINAL TYPING
+   ============================================================ */
+.typing {
+  display: inline-block;
+  border-right: 2px solid #4F8CFF;
+  white-space: nowrap;
+  overflow: hidden;
+  animation:
+    typingEffect 3.2s steps(40, end),
+    cursorBlink .7s step-end infinite;
+}
+
+@keyframes typingEffect {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+@keyframes cursorBlink {
+  0% { border-color: #4F8CFF; }
+  50% { border-color: transparent; }
+  100% { border-color: #4F8CFF; }
 }
 
 /* ============================================================
@@ -317,7 +383,9 @@ nav a:hover::after {
   100% { transform: scale(0.8); opacity: 0.6; }
 }
 
-/* Section grid */
+/* ============================================================
+   SECTION GRID
+   ============================================================ */
 .section-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
@@ -412,103 +480,6 @@ button:hover,
 .btn-outline:hover {
   background: var(--accent-soft);
   box-shadow: 0 0 18px rgba(79,140,255,0.45);
-}
-
-/* ============================================================
-   HERO VISUAL + 3D TILT
-   ============================================================ */
-.hero-visual {
-  position: relative;
-  overflow: hidden;
-  perspective: 1200px;
-}
-
-.hero-visual img {
-  width: 100%;
-  border-radius: 16px;
-  border: 1px solid rgba(79,140,255,0.5);
-  transform: translateY(0px) rotateX(0deg) rotateY(0deg);
-  transition: transform .2s ease-out;
-  will-change: transform;
-}
-
-/* Particle field */
-.particle-field {
-  position: absolute;
-  inset: 0;
-  overflow: hidden;
-  z-index: -1;
-}
-
-.particle {
-  position: absolute;
-  width: 4px;
-  height: 4px;
-  background: rgba(79,140,255,0.8);
-  border-radius: 50%;
-  box-shadow: 0 0 8px rgba(79,140,255,0.8);
-  animation: floatParticle 12s linear infinite;
-}
-
-@keyframes floatParticle {
-  0% { transform: translateY(0) scale(1); opacity: 1; }
-  100% { transform: translateY(-120vh) scale(0.4); opacity: 0; }
-}
-
-/* ============================================================
-   HOLOGRAPHIC HERO TITLE
-   ============================================================ */
-.holo-title {
-  position: relative;
-  display: inline-block;
-  background: linear-gradient(90deg, #4F8CFF, #7B5CFF, #3AD9A5);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: holoShift 6s linear infinite;
-}
-
-.holo-title::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(120deg, transparent 0%, rgba(255,255,255,0.25) 50%, transparent 100%);
-  mix-blend-mode: overlay;
-  animation: holoSweep 3.5s ease-in-out infinite;
-}
-
-@keyframes holoShift {
-  0% { filter: hue-rotate(0deg); }
-  100% { filter: hue-rotate(360deg); }
-}
-
-@keyframes holoSweep {
-  0% { transform: translateX(-120%); }
-  50% { transform: translateX(120%); }
-  100% { transform: translateX(-120%); }
-}
-
-/* ============================================================
-   TERMINAL TYPING
-   ============================================================ */
-.typing {
-  display: inline-block;
-  border-right: 2px solid #4F8CFF;
-  white-space: nowrap;
-  overflow: hidden;
-  animation:
-    typingEffect 3.2s steps(40, end),
-    cursorBlink .7s step-end infinite;
-}
-
-@keyframes typingEffect {
-  from { width: 0; }
-  to { width: 100%; }
-}
-
-@keyframes cursorBlink {
-  0% { border-color: #4F8CFF; }
-  50% { border-color: transparent; }
-  100% { border-color: #4F8CFF; }
 }
 
 /* ============================================================
@@ -609,67 +580,3 @@ button:hover,
 
 .arch-node {
   fill: #3AD9A5;
-  filter: drop-shadow(0 0 8px rgba(58,217,165,0.9));
-  animation: archNodePulse 1.8s ease-in-out infinite;
-}
-
-@keyframes archNodePulse {
-  0% { transform: scale(0.9); opacity: 0.7; }
-  50% { transform: scale(1.15); opacity: 1; }
-  100% { transform: scale(0.9); opacity: 0.7; }
-}
-
-.arch-packet {
-  fill: #4F8CFF;
-  filter: drop-shadow(0 0 8px rgba(79,140,255,0.9));
-}
-
-/* ============================================================
-   SCROLL FADE-IN
-   ============================================================ */
-.reveal {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: all 700ms ease-out;
-}
-
-.reveal.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.section-header {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: all 600ms ease-out;
-}
-
-.section-header.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* ============================================================
-   UTILITIES
-   ============================================================ */
-.glow-pulse {
-  animation: pulse 2.8s ease-in-out infinite;
-}
-
-@keyframes pulse {
-  0% { opacity: 0.4; }
-  50% { opacity: 1; }
-  100% { opacity: 0.4; }
-}
-
-.gradient-text {
-  background: linear-gradient(90deg, #4F8CFF, #7B5CFF, #3AD9A5);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: hueShift 8s linear infinite;
-}
-
-@keyframes hueShift {
-  0% { filter: hue-rotate(0deg); }
-  100% { filter: hue-rotate(360deg); }
-}
