@@ -29,7 +29,7 @@
 }
 
 /* LIGHT MODE */
-:root[data-theme='light'] {
+:root.light {
   --bg: #f5f7ff;
   --bg-elevated: #ffffff;
   --bg-soft: #e7ebf7;
@@ -71,6 +71,33 @@ body {
   min-height: 100vh;
 }
 
+/* Page intro */
+.page-intro {
+  opacity: 0;
+  filter: blur(12px);
+  transform: scale(0.96);
+  animation: introReveal 1.2s ease-out forwards;
+}
+
+@keyframes introReveal {
+  0% { opacity: 0; filter: blur(12px); transform: scale(0.96); }
+  60% { opacity: 1; filter: blur(0); transform: scale(1.01); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+/* Scroll progress bar */
+#scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 4px;
+  width: 0%;
+  background: linear-gradient(90deg, #4F8CFF, #7B5CFF, #3AD9A5);
+  box-shadow: 0 0 12px rgba(79,140,255,0.6);
+  z-index: 9999;
+  transition: width 0.1s linear;
+}
+
 /* ============================================================
    CYBER-GRID BACKGROUND
    ============================================================ */
@@ -95,25 +122,143 @@ body {
 /* ============================================================
    LAYOUT
    ============================================================ */
+header {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 24px 20px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
 main {
   max-width: 1120px;
   margin: 0 auto;
-  padding: 96px 20px 72px;
+  padding: 32px 20px 72px;
 }
 
 @media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    gap: 16px;
+    align-items: flex-start;
+  }
   main {
-    padding: 72px 16px 56px;
+    padding: 24px 16px 56px;
   }
 }
 
+/* Hero layout */
+.hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+  gap: 32px;
+  align-items: center;
+  margin-top: 40px;
+}
+
+@media (max-width: 900px) {
+  .hero {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Footer */
+footer {
+  margin-top: 80px;
+  padding-top: 24px;
+  border-top: 2px solid transparent;
+  background: linear-gradient(#0d1117, #0d1117) padding-box,
+              linear-gradient(90deg, #4F8CFF, #7B5CFF, #3AD9A5) border-box;
+  text-align: center;
+  color: var(--fg-muted);
+  font-size: 0.85rem;
+  padding-bottom: 24px;
+  border-radius: 12px 12px 0 0;
+}
+
 /* ============================================================
-   SECTION DIVIDER (NEON)
+   NAV
    ============================================================ */
+nav {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+nav a {
+  position: relative;
+  color: var(--fg-muted);
+  text-decoration: none;
+  padding-bottom: 4px;
+  font-size: 0.9rem;
+  transition: color .25s ease;
+}
+
+nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  width: 0%;
+  height: 2px;
+  background: linear-gradient(90deg, #4F8CFF, #7B5CFF, #3AD9A5);
+  box-shadow: 0 0 8px rgba(79,140,255,0.6);
+  transition: width .35s ease;
+  border-radius: 4px;
+}
+
+nav a:hover {
+  color: var(--accent);
+}
+
+nav a:hover::after {
+  width: 100%;
+}
+
+/* ============================================================
+   SECTION STRUCTURE
+   ============================================================ */
+.section-bracket {
+  position: relative;
+  padding: 60px 0;
+}
+
+.section-bracket::before,
+.section-bracket::after {
+  content: "";
+  position: absolute;
+  width: 28px;
+  height: 28px;
+  border: 2px solid var(--accent);
+  opacity: 0.55;
+  animation: bracketGlow 3s ease-in-out infinite alternate;
+}
+
+.section-bracket::before {
+  top: -12px;
+  left: -12px;
+  border-right: none;
+  border-bottom: none;
+}
+
+.section-bracket::after {
+  bottom: -12px;
+  right: -12px;
+  border-left: none;
+  border-top: none;
+}
+
+@keyframes bracketGlow {
+  0% { opacity: 0.35; filter: drop-shadow(0 0 4px var(--accent)); }
+  100% { opacity: 1; filter: drop-shadow(0 0 10px var(--accent-strong)); }
+}
+
+/* Divider */
 .section-divider {
   width: 100%;
   height: 2px;
-  margin: 80px 0;
+  margin: 40px 0 20px;
   background: linear-gradient(
     90deg,
     transparent,
@@ -126,14 +271,12 @@ main {
   border-radius: 4px;
 }
 
-/* ============================================================
-   NEON CIRCUIT CONNECTORS
-   ============================================================ */
+/* Circuit connector */
 .circuit-connector {
   position: relative;
   width: 100%;
   height: 60px;
-  margin: 40px 0;
+  margin: 20px 0 40px;
 }
 
 .circuit-connector::before,
@@ -174,46 +317,17 @@ main {
   100% { transform: scale(0.8); opacity: 0.6; }
 }
 
-/* ============================================================
-   SECTION CORNER BRACKETS
-   ============================================================ */
-.section-bracket {
-  position: relative;
-  padding: 40px 0;
-}
-
-.section-bracket::before,
-.section-bracket::after {
-  content: "";
-  position: absolute;
-  width: 28px;
-  height: 28px;
-  border: 2px solid var(--accent);
-  opacity: 0.55;
-  animation: bracketGlow 3s ease-in-out infinite alternate;
-}
-
-.section-bracket::before {
-  top: -12px;
-  left: -12px;
-  border-right: none;
-  border-bottom: none;
-}
-
-.section-bracket::after {
-  bottom: -12px;
-  right: -12px;
-  border-left: none;
-  border-top: none;
-}
-
-@keyframes bracketGlow {
-  0% { opacity: 0.35; filter: drop-shadow(0 0 4px var(--accent)); }
-  100% { opacity: 1; filter: drop-shadow(0 0 10px var(--accent-strong)); }
+/* Section grid */
+.section-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 40px;
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 
 /* ============================================================
-   CARDS + NEON HOVER
+   CARDS
    ============================================================ */
 .card {
   position: relative;
@@ -251,12 +365,18 @@ main {
   opacity: 0.35;
 }
 
+.card h3 {
+  margin-top: 0;
+  margin-bottom: 8px;
+  font-size: 1.05rem;
+}
+
 .card:hover h3 {
   color: var(--accent);
 }
 
 /* ============================================================
-   BUTTONS (NEON)
+   BUTTONS
    ============================================================ */
 button,
 .btn,
@@ -265,8 +385,8 @@ button,
   position: relative;
   cursor: pointer;
   border-radius: var(--radius-md);
-  padding: 12px 26px;
-  font-size: 1rem;
+  padding: 10px 22px;
+  font-size: 0.95rem;
   border: none;
   transition: all .25s ease;
   background: var(--accent);
@@ -295,67 +415,7 @@ button:hover,
 }
 
 /* ============================================================
-   NAV UNDERLINE (NEON)
-   ============================================================ */
-nav a {
-  position: relative;
-  color: var(--fg-muted);
-  text-decoration: none;
-  padding-bottom: 4px;
-  transition: color .25s ease;
-}
-
-nav a::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -3px;
-  width: 0%;
-  height: 2px;
-  background: linear-gradient(90deg, #4F8CFF, #7B5CFF, #3AD9A5);
-  box-shadow: 0 0 8px rgba(79,140,255,0.6);
-  transition: width .35s ease;
-  border-radius: 4px;
-}
-
-nav a:hover {
-  color: var(--accent);
-}
-
-nav a:hover::after {
-  width: 100%;
-}
-
-/* ============================================================
-   SCROLL FADE-IN
-   ============================================================ */
-.reveal {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: all 700ms ease-out;
-}
-
-.reveal.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* ============================================================
-   SECTION HEADER FADE-IN
-   ============================================================ */
-.section-header {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: all 600ms ease-out;
-}
-
-.section-header.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* ============================================================
-   HERO PARALLAX + 3D TILT
+   HERO VISUAL + 3D TILT
    ============================================================ */
 .hero-visual {
   position: relative;
@@ -364,9 +424,35 @@ nav a:hover::after {
 }
 
 .hero-visual img {
+  width: 100%;
+  border-radius: 16px;
+  border: 1px solid rgba(79,140,255,0.5);
   transform: translateY(0px) rotateX(0deg) rotateY(0deg);
   transition: transform .2s ease-out;
   will-change: transform;
+}
+
+/* Particle field */
+.particle-field {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  z-index: -1;
+}
+
+.particle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: rgba(79,140,255,0.8);
+  border-radius: 50%;
+  box-shadow: 0 0 8px rgba(79,140,255,0.8);
+  animation: floatParticle 12s linear infinite;
+}
+
+@keyframes floatParticle {
+  0% { transform: translateY(0) scale(1); opacity: 1; }
+  100% { transform: translateY(-120vh) scale(0.4); opacity: 0; }
 }
 
 /* ============================================================
@@ -402,7 +488,7 @@ nav a:hover::after {
 }
 
 /* ============================================================
-   TERMINAL TYPING EFFECT
+   TERMINAL TYPING
    ============================================================ */
 .typing {
   display: inline-block;
@@ -426,32 +512,145 @@ nav a:hover::after {
 }
 
 /* ============================================================
-   PARTICLE FIELD
+   ARCHITECTURE HUD + MAP
    ============================================================ */
-.particle-field {
+.arch-hud {
+  margin-top: 32px;
+}
+
+.arch-hud-frame {
+  position: relative;
+  padding: 18px;
+  border-radius: 18px;
+  background: radial-gradient(circle at top, rgba(79,140,255,0.12), transparent 60%),
+              rgba(5,6,10,0.96);
+  border: 1px solid rgba(79,140,255,0.4);
+  box-shadow: 0 0 24px rgba(0,0,0,0.9);
+  overflow: hidden;
+}
+
+.arch-hud-label {
+  font-size: 0.72rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--fg-muted);
+  margin-bottom: 8px;
+}
+
+.arch-hud-grid {
   position: absolute;
   inset: 0;
-  overflow: hidden;
-  z-index: -1;
+  background-image:
+    linear-gradient(to right, rgba(79,140,255,0.08) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(79,140,255,0.08) 1px, transparent 1px);
+  background-size: 40px 40px;
+  opacity: 0.35;
+  mix-blend-mode: screen;
+  pointer-events: none;
 }
 
-.particle {
+.arch-hud-corners::before,
+.arch-hud-corners::after {
+  content: "";
   position: absolute;
-  width: 4px;
-  height: 4px;
-  background: rgba(79,140,255,0.8);
-  border-radius: 50%;
-  box-shadow: 0 0 8px rgba(79,140,255,0.8);
-  animation: floatParticle 12s linear infinite;
+  width: 26px;
+  height: 26px;
+  border: 1px solid rgba(79,140,255,0.7);
 }
 
-@keyframes floatParticle {
-  0% { transform: translateY(0) scale(1); opacity: 1; }
-  100% { transform: translateY(-120vh) scale(0.4); opacity: 0; }
+.arch-hud-corners::before {
+  top: 10px;
+  right: 10px;
+  border-left: none;
+  border-bottom: none;
+}
+
+.arch-hud-corners::after {
+  bottom: 10px;
+  left: 10px;
+  border-right: none;
+  border-top: none;
+}
+
+.arch-holo {
+  position: relative;
+  display: inline-block;
+}
+
+.arch-map {
+  width: 100%;
+  border-radius: 14px;
+  border: 1px solid rgba(79,140,255,0.5);
+  box-shadow: 0 0 18px rgba(79,140,255,0.35);
+  display: block;
+}
+
+.arch-float {
+  animation: floatArch 10s ease-in-out infinite alternate;
+}
+
+@keyframes floatArch {
+  0% { transform: translateY(0px); }
+  100% { transform: translateY(-12px); }
+}
+
+/* SVG animation hooks */
+.arch-line {
+  stroke: rgba(79,140,255,0.9);
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-dasharray: 6 10;
+  animation: archLineDash 3.5s linear infinite;
+}
+
+@keyframes archLineDash {
+  to { stroke-dashoffset: -32; }
+}
+
+.arch-node {
+  fill: #3AD9A5;
+  filter: drop-shadow(0 0 8px rgba(58,217,165,0.9));
+  animation: archNodePulse 1.8s ease-in-out infinite;
+}
+
+@keyframes archNodePulse {
+  0% { transform: scale(0.9); opacity: 0.7; }
+  50% { transform: scale(1.15); opacity: 1; }
+  100% { transform: scale(0.9); opacity: 0.7; }
+}
+
+.arch-packet {
+  fill: #4F8CFF;
+  filter: drop-shadow(0 0 8px rgba(79,140,255,0.9));
 }
 
 /* ============================================================
-   GLOW PULSE
+   SCROLL FADE-IN
+   ============================================================ */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 700ms ease-out;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.section-header {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 600ms ease-out;
+}
+
+.section-header.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ============================================================
+   UTILITIES
    ============================================================ */
 .glow-pulse {
   animation: pulse 2.8s ease-in-out infinite;
@@ -463,9 +662,6 @@ nav a:hover::after {
   100% { opacity: 0.4; }
 }
 
-/* ============================================================
-   GRADIENT TEXT
-   ============================================================ */
 .gradient-text {
   background: linear-gradient(90deg, #4F8CFF, #7B5CFF, #3AD9A5);
   -webkit-background-clip: text;
