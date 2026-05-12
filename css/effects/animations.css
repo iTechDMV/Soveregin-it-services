@@ -1,0 +1,36 @@
+/* GLOBAL ANIMATIONS */
+
+/* Float (used for orbs + nodes) */
+@keyframes float {
+  0% { transform: translateY(0) translateX(0); }
+  100% { transform: translateY(-20px) translateX(10px); }
+}
+
+/* Scroll Reveal */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 700ms ease-out, transform 700ms ease-out;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Glow Pulse */
+.glow-pulse {
+  animation: pulse 2.8s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0% { opacity: 0.4; }
+  50% { opacity: 1; }
+  100% { opacity: 0.4; }
+}
+
+/* Border Hue Shift */
+@keyframes borderShift {
+  0% { filter: hue-rotate(0deg); }
+  100% { filter: hue-rotate(360deg); }
+}
