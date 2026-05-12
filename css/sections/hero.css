@@ -1,0 +1,111 @@
+/* HERO SECTION — Cinematic, sovereign, cyber */
+
+.hero {
+  padding: var(--space-80) var(--space-16);
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-48);
+  align-items: center;
+}
+
+.hero-copy {
+  z-index: 2;
+}
+
+.hero-sub {
+  margin-top: var(--space-16);
+  margin-bottom: var(--space-24);
+  max-width: 520px;
+}
+
+.hero-actions {
+  display: flex;
+  gap: var(--space-16);
+  margin-bottom: var(--space-24);
+}
+
+.hero-meta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  opacity: 0.8;
+  font-size: 0.9rem;
+}
+
+/* ORBS */
+.hero-visual {
+  position: relative;
+  height: 420px;
+}
+
+.orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(40px);
+  opacity: 0.6;
+}
+
+.orb-main {
+  width: 260px;
+  height: 260px;
+  background: var(--violet);
+  top: 40px;
+  left: 40px;
+  animation: float 10s ease-in-out infinite alternate;
+}
+
+.orb-secondary {
+  width: 180px;
+  height: 180px;
+  background: var(--blue);
+  bottom: 20px;
+  right: 20px;
+  animation: float 12s ease-in-out infinite alternate-reverse;
+}
+
+/* GRID PANEL */
+.grid-panel {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 90%;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: var(--space-16);
+  backdrop-filter: blur(12px);
+}
+
+.grid-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 6px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+.grid-row:last-child {
+  border-bottom: none;
+}
+
+.value.good {
+  color: var(--teal);
+}
+
+.value.warn {
+  color: #F7C948;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .hero-grid {
+    grid-template-columns: 1fr;
+  }
+  .hero-visual {
+    height: 320px;
+  }
+}
