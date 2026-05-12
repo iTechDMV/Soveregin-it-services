@@ -6,36 +6,46 @@
   <title>Sovereign IT Services</title>
   <link rel="stylesheet" href="css/styles.css" />
 </head>
+
 <body class="page-intro">
+  <!-- Cyber Grid Background -->
   <div class="cyber-grid"></div>
+
+  <!-- Scroll Progress Bar -->
   <div id="scroll-progress"></div>
 
-  <header class="fade-in">
+  <!-- HEADER -->
+  <header class="reveal">
     <img src="assets/branding/logo.svg" alt="Sovereign IT Services" height="48" />
+
     <nav>
       <a href="#services">Services</a>
       <a href="#architecture">Architecture</a>
       <a href="#trust">Trust</a>
-      <button id="themeToggle" class="btn-outline">Toggle Theme</button>
+      <button id="themeToggle" class="btn-outline">Dark / Light</button>
     </nav>
   </header>
 
   <main>
+
     <!-- HERO -->
     <section class="hero section-bracket reveal">
       <div>
         <h1 class="holo-title">Cyber Resilience Built for Sovereign Nations</h1>
+
         <p class="typing">
           Unified cybersecurity, cloud, and physical infrastructure engineered for tribal and enterprise sovereignty.
         </p>
+
         <div class="hero-actions">
           <button class="btn-primary">Schedule a Strategy Session</button>
           <button class="btn-outline">View Reference Architecture</button>
         </div>
       </div>
+
       <div class="hero-visual">
         <div class="particle-field" id="particles"></div>
-        <img src="assets/hero/tribal-cyber-landscape.svg" alt="Tribal cyber landscape" />
+        <img src="assets/hero/tribal-cyber-landscape.svg" alt="Cyber Sovereignty" />
       </div>
     </section>
 
@@ -44,22 +54,26 @@
     <!-- SERVICES -->
     <section id="services" class="section-bracket reveal">
       <h2 class="section-header">Core Services</h2>
+
       <div class="section-grid">
         <article class="card">
           <img src="assets/icons/shield.svg" class="section-icon" />
           <h3>Cybersecurity</h3>
           <p>Advanced threat detection, SOC visibility, and incident response aligned to NIST and SOC 2.</p>
         </article>
+
         <article class="card">
           <img src="assets/icons/cloud.svg" class="section-icon" />
           <h3>Cloud Infrastructure</h3>
           <p>Secure AWS/Azure landing zones, identity governance, and data protection frameworks.</p>
         </article>
+
         <article class="card">
           <img src="assets/icons/camera.svg" class="section-icon" />
           <h3>Physical Security</h3>
           <p>Integrated surveillance, access control, and unified physical‑digital risk management.</p>
         </article>
+
         <article class="card">
           <img src="assets/icons/network.svg" class="section-icon" />
           <h3>Networking</h3>
@@ -73,13 +87,14 @@
     <!-- ARCHITECTURE -->
     <section id="architecture" class="section-bracket reveal">
       <h2 class="section-header">Reference Architecture</h2>
-      <p>Dynamic visualization of how tribal government, cloud, and on‑prem environments connect securely.</p>
+      <p>A dynamic visualization of how tribal government, cloud, and on‑prem environments connect securely.</p>
 
       <div class="arch-hud">
         <div class="arch-hud-frame">
           <div class="arch-hud-label">ARCH‑TOPOLOGY · LIVE MODEL</div>
           <div class="arch-hud-corners"></div>
           <div class="arch-hud-grid"></div>
+
           <div class="arch-holo">
             <img src="assets/system-map.svg" class="arch-map arch-float" />
           </div>
@@ -92,15 +107,18 @@
     <!-- TRUST -->
     <section id="trust" class="section-bracket reveal">
       <h2 class="section-header">Trust & Resilience</h2>
+
       <div class="section-grid">
         <article class="card">
           <h3>Resilience‑First Engineering</h3>
           <p>Systems designed to anticipate, withstand, recover, and evolve under any conditions.</p>
         </article>
+
         <article class="card">
           <h3>Compliance‑Aligned Operations</h3>
           <p>SOC 2, NIST CSF, CJIS, HIPAA, and tribal governance frameworks built into every layer.</p>
         </article>
+
         <article class="card">
           <h3>Sovereign‑Aligned Technology</h3>
           <p>Data ownership, transparency, and long‑term sustainability for tribal nations.</p>
@@ -108,21 +126,25 @@
       </div>
     </section>
 
+    <!-- FOOTER -->
     <footer>
       © <span id="year"></span> Sovereign IT Services · Cyber Resilience for Sovereign Nations
     </footer>
+
   </main>
 
+  <!-- SCRIPTS -->
   <script>
     // Year
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // Fade-in observer
+    // Reveal on scroll
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
         if (entry.isIntersecting) entry.target.classList.add('visible');
       });
     }, { threshold: 0.2 });
+
     document.querySelectorAll('.reveal, .section-header').forEach(el => observer.observe(el));
 
     // Scroll progress bar
@@ -151,17 +173,19 @@
       const rect = e.currentTarget.getBoundingClientRect();
       const x = e.clientX - rect.left - rect.width / 2;
       const y = e.clientY - rect.top - rect.height / 2;
-      heroImg.style.transform = `translateY(${window.scrollY * 0.15}px) rotateX(${y / -25}deg) rotateY(${x / 25}deg)`;
+      heroImg.style.transform =
+        `translateY(${window.scrollY * 0.15}px) rotateX(${y / -25}deg) rotateY(${x / 25}deg)`;
     });
     document.querySelector('.hero-visual').addEventListener('mouseleave', () => {
       heroImg.style.transform = 'translateY(0px) rotateX(0deg) rotateY(0deg)';
     });
 
-    // Theme toggle
+    // Dark/Light mode toggle
     const toggle = document.getElementById('themeToggle');
     toggle.addEventListener('click', () => {
       document.documentElement.classList.toggle('light');
     });
   </script>
+
 </body>
 </html>
