@@ -1,0 +1,12 @@
+/* CONTACT SECTION */
+
+.section-contact {
+  max-width: 720px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.contact-form {
+  margin-top: var(--space-32);
+  text-align: left;
+}
