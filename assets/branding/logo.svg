@@ -1,0 +1,17 @@
+<svg width="320" height="80" viewBox="0 0 320 80"
+     xmlns="http://www.w3.org/2000/svg">
+  <text x="90" y="52" font-family="Poppins" font-size="32"
+        fill="#22d3ee" letter-spacing="1">
+    Sovereign IT
+  </text>
+  <text x="90" y="72" font-family="Inter" font-size="18"
+        fill="#22c55e">
+    Services
+  </text>
+
+  <!-- Tribal circuit emblem -->
+  <circle cx="40" cy="40" r="28"
+          stroke="#22d3ee" stroke-width="3" fill="none"/>
+  <path d="M40 16L56 40L40 64L24 40Z"
+        stroke="#22c55e" stroke-width="3" fill="none"/>
+</svg>
