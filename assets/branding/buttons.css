@@ -1,0 +1,34 @@
+/* Primary Button */
+.btn-primary {
+  background: linear-gradient(90deg, var(--brand-cyan), var(--brand-emerald));
+  color: #fff;
+  padding: 12px 28px;
+  border-radius: 8px;
+  border: none;
+  font-family: var(--font-ui);
+  font-size: var(--text-md);
+  cursor: pointer;
+  transition: 0.25s ease;
+  box-shadow: var(--glow-cyan);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--glow-emerald);
+}
+
+/* Outline Button */
+.btn-outline {
+  background: transparent;
+  border: 2px solid var(--brand-cyan);
+  color: var(--brand-cyan);
+  padding: 12px 28px;
+  border-radius: 8px;
+  font-family: var(--font-ui);
+  transition: 0.25s ease;
+}
+
+.btn-outline:hover {
+  border-color: var(--brand-emerald);
+  color: var(--brand-emerald);
+}
