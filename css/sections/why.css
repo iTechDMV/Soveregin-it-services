@@ -1,0 +1,11 @@
+/* WHY SOVEREIGN IT SERVICES */
+
+#why h2 {
+  text-align: center;
+}
+
+#why .section-sub {
+  text-align: center;
+  max-width: 640px;
+  margin: 0 auto var(--space-48);
+}
