@@ -1,0 +1,16 @@
+/* PARALLAX EFFECTS */
+
+.hero-visual {
+  perspective: 1000px;
+  position: relative;
+}
+
+.orb-main {
+  animation: float 10s ease-in-out infinite alternate,
+             orbParallax 12s ease-in-out infinite alternate;
+}
+
+@keyframes orbParallax {
+  from { transform: translate3d(0,0,0) rotate(0deg); }
+  to { transform: translate3d(-20px,10px,0) rotate(8deg); }
+}
