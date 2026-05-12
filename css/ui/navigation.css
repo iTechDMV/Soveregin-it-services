@@ -1,0 +1,50 @@
+/* NAVIGATION — Solid bar, clean layout */
+
+.nav {
+  width: 100%;
+  padding: 16px 24px;
+  background: var(--slate);
+  border-bottom: 1px solid var(--border-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+}
+
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo-text {
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.nav-links {
+  display: flex;
+  gap: 24px;
+}
+
+.nav-links a {
+  opacity: 0.85;
+  transition: var(--fast);
+}
+
+.nav-links a:hover {
+  opacity: 1;
+  color: var(--teal);
+}
+
+.theme-toggle {
+  font-size: 1.2rem;
+  color: var(--fog);
+  transition: var(--fast);
+}
+
+.theme-toggle:hover {
+  color: var(--teal);
+}
